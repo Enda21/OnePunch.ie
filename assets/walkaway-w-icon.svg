@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112 64" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">WalkAway W Icon</title>
+  <desc id="desc">Orange WalkAway W icon on a transparent background.</desc>
+  <g stroke="#D83B00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke">
+    <polyline points="10,10 28,54 46,10 64,54 82,10" />
+    <polyline points="24,10 42,54 60,10 78,54 96,10" />
+  </g>
+</svg>

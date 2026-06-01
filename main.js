@@ -1,5 +1,5 @@
 /* ========================================
-   One-Punch Awareness - JavaScript
+    Walk Away - JavaScript
    Smooth interactions & video fallback handling
    ======================================== */
 
@@ -247,7 +247,7 @@
         initializeLazyLoading();
 
         // Log initialization complete
-        console.log('One-Punch Awareness site initialized');
+        console.log('Walk Away site initialized');
     }
 
     // Start initialization

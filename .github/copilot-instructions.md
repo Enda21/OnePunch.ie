@@ -1,4 +1,4 @@
-# One-Punch Awareness Website - Project Instructions
+# Walk Away Website - Project Instructions
 
 ## Project Overview
 
@@ -25,7 +25,7 @@ This is a **single-page static website** (HTML/CSS/JavaScript) dedicated to viol
 ## Folder Structure
 
 ```
-OnePunch.ie/
+WalkAway.ie/
 ├── index.html                # Main page with all content
 ├── styles.css                # Responsive, accessible styling
 ├── main.js                   # Interactivity & video fallback
@@ -145,7 +145,7 @@ git add .
 git commit -m "Deploy site"
 git push origin gh-pages
 
-# Site available at: https://username.github.io/OnePunch.ie
+# Site available at: https://username.github.io/WalkAway.ie
 ```
 
 ### To Cloud Hosting (Vercel, Netlify, etc.)
@@ -278,7 +278,7 @@ document.querySelector('.video-fallback').style.display = 'block';
 
 **Last Updated**: May 7, 2026
 
-**Maintained By**: One-Punch Awareness Initiative
+**Maintained By**: Walk Away Initiative
 
 **Update Schedule**: As-needed (content changes, critical fixes)
 

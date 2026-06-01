@@ -1,22 +1,26 @@
 /* ========================================
-   One-Punch Awareness Website
-   Responsive, Accessible CSS
+   WalkAway / Siúil Leat Website
+   Brand Guide v1 — June 2026
    ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap');
 
 /* ========================================
    1. CSS Reset & Root Variables
    ======================================== */
 
 :root {
-    --color-primary: #8B0000;      /* Deep red - serious tone */
-    --color-secondary: #DC143C;    /* Crimson - accent */
-    --color-dark: #1a1a1a;         /* Near black - text */
-    --color-light: #f5f5f5;        /* Light gray - background */
-    --color-white: #ffffff;        /* White - cards */
-    --color-accent: #FFD700;       /* Gold - highlights */
-    --color-success: #28a745;      /* Green - positive action */
-    --color-text: #333333;         /* Main text */
-    --color-border: #dddddd;       /* Borders */
+    --color-primary: #1E4264;      /* Brand navy */
+    --color-secondary: #D83B00;    /* Brand orange */
+    --color-dark: #1E4264;         /* Dark navy */
+    --color-light: #F3F2E9;        /* Soft cream */
+    --color-white: #ffffff;
+    --color-accent: #D83B00;       /* Orange CTA */
+    --color-gold: #A99663;         /* Muted gold accent */
+    --color-success: #28a745;
+    --color-text: #333333;
+    --color-text-on-navy: #EAF0F5; /* Body text on navy */
+    --color-border: #A99663;       /* Gold border */
 
     --spacing-unit: 1rem;
     --spacing-xs: calc(var(--spacing-unit) * 0.5);
@@ -26,7 +30,8 @@
     --spacing-xl: calc(var(--spacing-unit) * 3);
     --spacing-2xl: calc(var(--spacing-unit) * 4);
 
-    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    --font-sans: 'Inter', 'Segoe UI', Arial, sans-serif;
+    --font-heading: 'Montserrat', 'Inter', Arial, sans-serif;
     --font-mono: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
 
     --font-size-base: 16px;
@@ -73,8 +78,15 @@ body {
 h1, h2, h3, h4, h5, h6 {
     line-height: var(--line-height-tight);
     font-weight: 700;
+    font-family: var(--font-heading);
     margin-bottom: var(--spacing-md);
     color: var(--color-dark);
+}
+
+h2 {
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 
 h1 {
@@ -149,33 +161,88 @@ section {
 }
 
 .nav-container {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-lg);
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+}
+
+.nav-divider {
+    border: none;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.25);
+    width: 100%;
+    margin: var(--spacing-sm) 0;
+}
+
+.logo-link {
+    display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    gap: var(--spacing-md);
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.logo-link:hover {
+    text-decoration: none;
+    opacity: 0.9;
+}
+
+.logo-img {
+    height: 52px;
+    width: auto;
+    display: block;
+    flex-shrink: 0;
+    opacity: 1;
+}
+
+.logo-link:hover .logo-img {
+    opacity: 1;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
 }
 
 .logo h1 {
     font-size: var(--font-size-xl);
     margin: 0;
-    color: var(--color-accent);
+    line-height: 1;
+}
+
+.logo-walk {
+    color: var(--color-white);
+}
+
+.logo-away {
+    color: var(--color-secondary);
+}
+
+.logo-tagline {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0.25rem 0 0 0;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.01em;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: var(--spacing-lg);
-    flex-wrap: wrap;
+    gap: 0.25rem;
+    flex-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .nav-links a {
     color: var(--color-white);
     font-weight: 600;
-    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.9rem;
+    padding: 0.35rem 0.75rem;
     border-radius: 4px;
     transition: var(--transition);
 }
@@ -208,11 +275,11 @@ section {
    ======================================== */
 
 .hero {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-    color: var(--color-white);
+    background: var(--color-primary);
+    color: var(--color-text-on-navy);
     text-align: center;
     padding: var(--spacing-2xl) var(--spacing-md);
-    min-height: 50vh;
+    min-height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -223,40 +290,82 @@ section {
 }
 
 .hero h2 {
-    font-size: var(--font-size-3xl);
+    font-size: clamp(2rem, 5vw, 3.5rem);
     color: var(--color-white);
     margin-bottom: var(--spacing-lg);
     line-height: var(--line-height-tight);
+    text-transform: none;
+    letter-spacing: 0;
 }
 
 .hero-subtitle {
     font-size: var(--font-size-lg);
     line-height: var(--line-height-relaxed);
     margin-bottom: var(--spacing-xl);
-    color: rgba(255, 255, 255, 0.95);
+    color: var(--color-text-on-navy);
+}
+
+.hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    justify-content: center;
 }
 
 .cta-button {
-    display: inline-block;
-    background-color: var(--color-accent);
-    color: var(--color-dark);
-    padding: var(--spacing-md) var(--spacing-lg);
-    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    padding: 0.85rem var(--spacing-lg);
+    border-radius: 999px;
     font-size: var(--font-size-md);
     font-weight: 700;
+    font-family: var(--font-heading);
     text-decoration: none;
     transition: var(--transition);
     box-shadow: var(--shadow-md);
+    letter-spacing: 0.02em;
 }
 
 .cta-button:hover {
-    background-color: #FFE700;
+    background-color: #b83200;
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
+    color: var(--color-white);
     text-decoration: none;
 }
 
 .cta-button:focus {
+    outline: 3px solid var(--color-white);
+    outline-offset: 2px;
+}
+
+.cta-button-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: var(--color-white);
+    border: 2px solid var(--color-gold);
+    padding: 0.85rem var(--spacing-lg);
+    border-radius: 999px;
+    font-size: var(--font-size-md);
+    font-weight: 700;
+    font-family: var(--font-heading);
+    text-decoration: none;
+    transition: var(--transition);
+    letter-spacing: 0.02em;
+}
+
+.cta-button-secondary:hover {
+    background-color: var(--color-gold);
+    color: var(--color-dark);
+    text-decoration: none;
+}
+
+.cta-button-secondary:focus {
     outline: 3px solid var(--color-white);
     outline-offset: 2px;
 }
@@ -415,8 +524,9 @@ section {
 .stat-card {
     background-color: var(--color-white);
     padding: var(--spacing-lg);
-    border-radius: 8px;
+    border-radius: 16px;
     box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(169, 150, 99, 0.55);
     border-top: 4px solid var(--color-secondary);
     transition: var(--transition);
 }
@@ -619,8 +729,8 @@ section {
 /* High contrast mode support */
 @media (prefers-contrast: more) {
     :root {
-        --color-primary: #600;
-        --color-secondary: #c00;
+        --color-primary: #0a1f42;
+        --color-secondary: #c05000;
     }
 }
 
@@ -675,4 +785,494 @@ section {
     .container {
         padding: var(--spacing-lg);
     }
+}
+
+/* ========================================
+   14. About Section
+   ======================================== */
+
+.about-section {
+    background-color: var(--color-white);
+}
+
+.about-section h2 {
+    text-align: center;
+}
+
+.about-lead {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-lg);
+}
+
+.callout-box {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    padding: var(--spacing-xl);
+    border-radius: 16px;
+    margin-top: var(--spacing-xl);
+    border-left: 6px solid var(--color-gold);
+}
+
+.callout-box p {
+    color: var(--color-white);
+    margin-bottom: var(--spacing-md);
+}
+
+.callout-box p:last-child {
+    margin-bottom: 0;
+}
+
+.callout-box .stat-source {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.8);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    padding-top: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+/* ========================================
+   15. Vision Section
+   ======================================== */
+
+.vision-section {
+    background-color: var(--color-light);
+}
+
+.vision-section h2 {
+    text-align: center;
+}
+
+.vision-list {
+    list-style: none;
+    padding: 0;
+    margin-top: var(--spacing-xl);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+    .vision-list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.vision-list li {
+    background-color: var(--color-white);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    border-left: 4px solid var(--color-secondary);
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-relaxed);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ========================================
+   16. Four Pillars Section
+   ======================================== */
+
+/* ========================================
+   16. Objectives / Four Pillars Section
+   ======================================== */
+
+.objectives-section {
+    background-color: var(--color-primary);
+    padding: var(--spacing-2xl) var(--spacing-md);
+}
+
+.objectives-heading {
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: var(--font-heading);
+    margin-bottom: var(--spacing-xl);
+}
+
+.objectives-panel {
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-gold);
+    border-radius: 12px;
+    overflow: hidden;
+    padding: var(--spacing-xl) var(--spacing-xl) 0;
+}
+
+.objectives-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.objectives-logo {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.objectives-logo-sub {
+    font-size: 0.85rem;
+    font-style: italic;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 0.2rem;
+    font-family: var(--font-sans);
+}
+
+.objectives-panel-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-md);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+}
+
+.objectives-rule {
+    border: none;
+    height: 1px;
+    background-color: var(--color-gold);
+    margin: 0 0 var(--spacing-xl);
+}
+
+.objectives-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: 0 calc(-1 * var(--spacing-xl));
+}
+
+@media (min-width: 640px) {
+    .objectives-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .objectives-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+.pillar-col {
+    padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.pillar-col h3 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-md);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 3px solid currentColor;
+    display: inline-block;
+}
+
+.pillar-col p {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: 0;
+}
+
+/* Education — orange */
+.pillar-col--orange {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
+.pillar-col--orange h3 { color: var(--color-white); border-bottom-color: rgba(255,255,255,0.5); }
+.pillar-col--orange p  { color: rgba(255,255,255,0.92); }
+
+/* Awareness — white with left border */
+.pillar-col--white {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    border-left: 1px solid var(--color-gold);
+}
+.pillar-col--white h3  { color: var(--color-primary); border-bottom-color: var(--color-secondary); }
+.pillar-col--white strong { color: var(--color-secondary); }
+
+/* Advocacy — navy with border */
+.pillar-col--navy {
+    background-color: var(--color-primary);
+    color: var(--color-text-on-navy);
+    border-left: 1px solid var(--color-gold);
+    border-right: 1px solid var(--color-gold);
+}
+.pillar-col--navy h3 { color: var(--color-white); border-bottom-color: var(--color-gold); }
+.pillar-col--navy p  { color: var(--color-text-on-navy); }
+
+/* Research — cream */
+.pillar-col--cream {
+    background-color: var(--color-light);
+    color: var(--color-primary);
+}
+.pillar-col--cream h3 { color: var(--color-primary); border-bottom-color: var(--color-secondary); }
+
+.objectives-tagline {
+    text-align: center;
+    font-style: italic;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-white);
+    padding: var(--spacing-xl) 0;
+    margin: 0;
+    border-top: 1px solid var(--color-gold);
+    margin-top: var(--spacing-xl);
+}
+
+/* ========================================
+   14b. About Section – orange rule accent
+   ======================================== */
+
+.about-section .section-rule {
+    height: 3px;
+    background-color: var(--color-secondary);
+    border: none;
+    width: 60px;
+    margin: 0 auto var(--spacing-xl);
+}
+
+/* ========================================
+   15b. Vision – icon bullet override
+   ======================================== */
+
+.vision-list li::before {
+    content: none;
+}
+
+/* ========================================
+   17. Co-Founders Section
+   ======================================== */
+
+.founders-section {
+    background-color: var(--color-light);
+}
+
+.founders-section > .container > h2 {
+    text-align: center;
+}
+
+.founders-section > .container > .section-intro {
+    text-align: center;
+}
+
+.founders-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+    margin-top: var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+    .founders-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.founder-card {
+    background-color: var(--color-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+}
+
+.founder-photo-wrap {
+    background-color: var(--color-primary);
+    display: flex;
+    justify-content: center;
+    padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-lg);
+    position: relative;
+}
+
+.founder-photo-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: var(--color-secondary);
+}
+
+.founder-photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top center;
+    border: 4px solid var(--color-secondary);
+    display: block;
+    background-color: #2a3f6e;
+}
+
+.founder-info {
+    padding: var(--spacing-xl);
+    flex: 1;
+}
+
+.founder-info h3 {
+    color: var(--color-primary);
+    font-size: var(--font-size-xl);
+    margin-bottom: 0.25rem;
+}
+
+.founder-role {
+    color: var(--color-secondary);
+    font-weight: 700;
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: var(--spacing-md);
+    display: block;
+}
+
+.founders-note {
+    text-align: center;
+    font-style: italic;
+    font-size: var(--font-size-lg);
+    color: var(--color-primary);
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg) var(--spacing-xl);
+    background-color: var(--color-white);
+    border-radius: 8px;
+    border-left: 4px solid var(--color-secondary);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ========================================
+   18. Footer Links
+   ======================================== */
+
+.footer {
+    background-color: var(--color-primary);
+}
+
+.footer a {
+    color: var(--color-secondary);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: var(--color-white);
+    text-decoration: underline;
+}
+
+/* ========================================
+   19. How You Can Help Section
+   ======================================== */
+
+.help-section {
+    background-color: var(--color-primary);
+    color: var(--color-text-on-navy);
+}
+
+.help-section h2 {
+    text-align: center;
+    color: var(--color-white);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.help-section .section-intro {
+    color: var(--color-text-on-navy);
+}
+
+.help-bullets {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-xl) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.help-bullets li {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(169, 150, 99, 0.45);
+    border-left: 5px solid var(--color-secondary);
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    font-size: var(--font-size-lg);
+    color: var(--color-text-on-navy);
+    line-height: var(--line-height-relaxed);
+}
+
+@media (min-width: 768px) {
+    .help-bullets {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .help-bullets li {
+        flex: 1 1 calc(33% - var(--spacing-md));
+    }
+}
+
+.help-note {
+    color: var(--color-text-on-navy);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.help-cta-wrap {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+}
+
+/* ========================================
+   20. Contact Section
+   ======================================== */
+
+.contact-section {
+    background-color: var(--color-light);
+}
+
+.contact-section h2 {
+    text-align: center;
+}
+
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+    justify-content: center;
+    margin-top: var(--spacing-xl);
+}
+
+.contact-item {
+    background-color: var(--color-white);
+    border-radius: 16px;
+    border: 1px solid rgba(169, 150, 99, 0.4);
+    border-top: 4px solid var(--color-secondary);
+    padding: var(--spacing-xl);
+    text-align: center;
+    min-width: 200px;
+    box-shadow: var(--shadow-sm);
+}
+
+.contact-item span {
+    display: block;
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+}
+
+.contact-item a {
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    color: var(--color-primary);
+    word-break: break-all;
 }

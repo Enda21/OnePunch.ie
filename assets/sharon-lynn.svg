@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Sharon Lynn – Co-Founder, WalkAway">
+  <rect width="200" height="200" fill="#1B2D52"/>
+  <!-- Shoulder silhouette -->
+  <ellipse cx="100" cy="230" rx="80" ry="60" fill="#2a3f6e"/>
+  <!-- Head -->
+  <circle cx="100" cy="90" r="48" fill="#2a3f6e"/>
+  <!-- Initials -->
+  <text x="100" y="102" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+        font-size="40" font-weight="700" fill="#E87722" text-anchor="middle">SL</text>
+  <!-- Orange base rule -->
+  <rect x="0" y="196" width="200" height="4" fill="#E87722"/>
+</svg>

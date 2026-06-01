@@ -1,4 +1,4 @@
-# One-Punch Awareness: Ireland
+# Walk Away: Ireland
 
 A one-page educational website highlighting the devastating impact of one-punch attacks in Ireland, designed to promote violence prevention and awareness.
 
@@ -25,7 +25,7 @@ All claims and statistics are sourced from:
 ## File Structure
 
 ```
-OnePunch.ie/
+WalkAway.ie/
 ├── index.html          # Main single-page website
 ├── styles.css          # Responsive, accessible CSS
 ├── main.js             # Smooth scroll & video fallback handling
@@ -264,5 +264,5 @@ This site is provided as an **educational resource for violence prevention**. Us
 ---
 
 **Last Updated**: May 2026  
-**Creator**: One-Punch Awareness Initiative  
+**Creator**: Walk Away Initiative  
 **Focus**: Violence prevention, victim support, and community education in Ireland
