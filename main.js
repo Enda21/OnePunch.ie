@@ -90,6 +90,41 @@
         });
     }
 
+    function closeNavMenu() {
+        const header = document.querySelector('.header');
+        const toggle = document.querySelector('.nav-toggle');
+
+        if (header) {
+            header.classList.remove('nav-open');
+        }
+
+        if (toggle) {
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.setAttribute('aria-label', 'Open menu');
+        }
+    }
+
+    function initializeMobileNav() {
+        const header = document.querySelector('.header');
+        const toggle = document.querySelector('.nav-toggle');
+
+        if (!header || !toggle) {
+            return;
+        }
+
+        toggle.addEventListener('click', function() {
+            const isOpen = header.classList.toggle('nav-open');
+            toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 900) {
+                closeNavMenu();
+            }
+        });
+    }
+
     // ========================================
     // 3. Keyboard Navigation & Accessibility
     // ========================================
@@ -102,11 +137,6 @@
                 closeNavMenu();
             }
         });
-    }
-
-    function closeNavMenu() {
-        // Placeholder for future menu closing logic
-        // Currently no mobile menu, but structure is here for expansion
     }
 
     // ========================================
@@ -189,19 +219,6 @@
     }
 
     // ========================================
-    // 6. Responsive Design Helpers
-    // ========================================
-
-    function handleResponsiveNav() {
-        const header = document.querySelector('.header');
-        
-        // Check viewport width and adjust if needed
-        window.addEventListener('resize', function() {
-            // Could add menu toggle logic here for future mobile menu
-        });
-    }
-
-    // ========================================
     // 7. Performance & Lazy Loading
     // ========================================
 
@@ -240,11 +257,11 @@
 
     function initializeAll() {
         initializeYouTubePlayer();
+        initializeMobileNav();
         initializeSmoothScroll();
         initializeKeyboardNav();
         initializeEventTracking();
         initializeScrollAnimations();
-        handleResponsiveNav();
         initializeLazyLoading();
 
         // Log initialization complete

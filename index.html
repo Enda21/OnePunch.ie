@@ -11,18 +11,30 @@
 <body>
     <!-- Header/Navigation -->
     <header class="header">
-        <nav class="nav-container">
-            <div class="logo">
-                <a href="#" class="logo-link">
-                    <img src="assets/WalkAwayLogo.png" alt="WalkAway W mark" class="logo-img">
-                    <div class="logo-text">
-                        <h1><span class="logo-walk">Walk</span><span class="logo-away">Away</span></h1>
-                        <p class="logo-tagline">Siúil Leat &middot; Real strength is knowing when to walk away</p>
-                    </div>
-                </a>
+        <nav class="nav-container" aria-label="Primary">
+            <div class="nav-top">
+                <div class="logo">
+                    <a href="#" class="logo-link">
+                        <img src="assets/WalkAwayLogo.png" alt="WalkAway W mark" class="logo-img">
+                        <div class="logo-text">
+                            <h1><span class="logo-walk">Walk</span><span class="logo-away">Away</span></h1>
+                            <p class="logo-tagline">Siúil Leat &middot; Real strength is knowing when to walk away</p>
+                        </div>
+                    </a>
+                </div>
+                <button
+                    type="button"
+                    class="nav-toggle"
+                    aria-expanded="false"
+                    aria-controls="primary-nav"
+                    aria-label="Open menu">
+                    <span class="nav-toggle__bar" aria-hidden="true"></span>
+                    <span class="nav-toggle__bar" aria-hidden="true"></span>
+                    <span class="nav-toggle__bar" aria-hidden="true"></span>
+                </button>
             </div>
             <hr class="nav-divider">
-            <ul class="nav-links">
+            <ul id="primary-nav" class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#founders">Team</a></li>
                 <li><a href="#video-section">Watch</a></li>
