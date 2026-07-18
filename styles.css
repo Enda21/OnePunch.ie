@@ -17,6 +17,7 @@
     --color-white: #ffffff;
     --color-accent: #D83B00;       /* Orange CTA */
     --color-gold: #A99663;         /* Muted gold accent */
+    --color-navy-deep: #17334E;    /* Deeper navy for alternating blocks */
     --color-success: #28a745;
     --color-text: #333333;
     --color-text-on-navy: #EAF0F5; /* Body text on navy */
@@ -194,7 +195,7 @@ section {
 .nav-divider {
     border: none;
     height: 1px;
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: var(--color-gold);
     width: 100%;
     margin: var(--spacing-sm) 0;
 }
@@ -251,7 +252,7 @@ section {
 
 .logo-tagline {
     font-size: 0.72rem;
-    color: rgba(255, 255, 255, 0.65);
+    color: var(--color-gold);
     margin: 0.25rem 0 0 0;
     font-style: italic;
     font-weight: 400;
@@ -537,13 +538,13 @@ section {
 }
 
 .video-section h2 {
-    text-align: center;
+    text-align: left;
 }
 
 .section-intro {
-    text-align: center;
+    text-align: left;
     font-size: var(--font-size-md);
-    color: var(--color-text);
+    color: var(--color-text-on-navy);
     margin-bottom: var(--spacing-lg);
     padding-inline: 0.25rem;
 }
@@ -672,7 +673,7 @@ section {
 }
 
 .impact-stories h2 {
-    text-align: center;
+    text-align: left;
 }
 
 .stories-grid {
@@ -695,7 +696,7 @@ section {
 
 .story-card {
     background-color: var(--color-light);
-    border-left: 5px solid var(--color-primary);
+    border-left: 5px solid var(--color-secondary);
     padding: var(--spacing-lg);
     border-radius: 6px;
     transition: var(--transition);
@@ -735,7 +736,7 @@ section {
 }
 
 .statistics h2 {
-    text-align: center;
+    text-align: left;
 }
 
 .stats-grid {
@@ -793,7 +794,7 @@ section {
 }
 
 .prevention h2 {
-    text-align: center;
+    text-align: left;
 }
 
 .prevention-grid {
@@ -848,7 +849,7 @@ section {
 }
 
 .resources h2 {
-    text-align: center;
+    text-align: left;
 }
 
 .resources-grid {
@@ -868,7 +869,7 @@ section {
     padding: var(--spacing-lg);
     border-radius: 8px;
     box-shadow: var(--shadow-sm);
-    border-left: 4px solid var(--color-success);
+    border-left: 4px solid var(--color-gold);
 }
 
 .resource-card h3 {
@@ -878,7 +879,7 @@ section {
 
 .resource-card strong {
     font-weight: 700;
-    color: var(--color-success);
+    color: var(--color-secondary);
 }
 
 /* ========================================
@@ -890,7 +891,7 @@ section {
 }
 
 .sources h2 {
-    text-align: center;
+    text-align: left;
 }
 
 .sources-list h3 {
@@ -1114,14 +1115,14 @@ section {
 }
 
 .about-section h2 {
-    text-align: center;
+    text-align: left;
 }
 
 .about-lead {
     font-size: var(--font-size-lg);
     line-height: var(--line-height-relaxed);
     font-weight: 600;
-    color: var(--color-dark);
+    color: var(--color-white);
     margin-bottom: var(--spacing-lg);
 }
 
@@ -1160,7 +1161,7 @@ section {
 }
 
 .vision-section h2 {
-    text-align: center;
+    text-align: left;
 }
 
 .vision-list {
@@ -1351,12 +1352,12 @@ section {
    14b. About Section – orange rule accent
    ======================================== */
 
-.about-section .section-rule {
+.section-rule {
     height: 3px;
     background-color: var(--color-secondary);
     border: none;
     width: 60px;
-    margin: 0 auto var(--spacing-xl);
+    margin: 0 0 var(--spacing-xl);
 }
 
 /* ========================================
@@ -1376,11 +1377,11 @@ section {
 }
 
 .founders-section > .container > h2 {
-    text-align: center;
+    text-align: left;
 }
 
 .founders-section > .container > .section-intro {
-    text-align: center;
+    text-align: left;
 }
 
 .founders-grid {
@@ -1496,8 +1497,8 @@ section {
 }
 
 .help-section h2 {
-    text-align: center;
-    color: var(--color-white);
+    text-align: left;
+    color: var(--color-secondary);
     text-transform: uppercase;
     letter-spacing: 0.04em;
 }
@@ -1538,7 +1539,7 @@ section {
 
 .help-note {
     color: var(--color-text-on-navy);
-    text-align: center;
+    text-align: left;
     margin-bottom: var(--spacing-xl);
 }
 
@@ -1556,7 +1557,7 @@ section {
 }
 
 .contact-section h2 {
-    text-align: center;
+    text-align: left;
 }
 
 .contact-grid {
@@ -1603,4 +1604,120 @@ section {
     font-weight: 600;
     color: var(--color-primary);
     word-break: break-all;
+}
+
+/* ========================================
+   21. Brochure Alignment — navy-dominant layout
+   ======================================== */
+
+body {
+    background-color: var(--color-primary);
+}
+
+section {
+    color: var(--color-text-on-navy);
+}
+
+/* Alternating navy blocks; white/cream cards sit on top, as in the brochure */
+.about-section,
+.video-section,
+.objectives-section,
+.statistics,
+.resources,
+.help-section {
+    background-color: var(--color-navy-deep);
+}
+
+.founders-section,
+.vision-section,
+.impact-stories,
+.prevention,
+.sources,
+.contact-section {
+    background-color: var(--color-primary);
+}
+
+/* Orange square marker before section headings, per brochure */
+section .container > h2::before {
+    content: "";
+    display: inline-block;
+    width: 0.45em;
+    height: 0.45em;
+    background-color: var(--color-secondary);
+    margin-right: 0.6em;
+    vertical-align: 0.1em;
+}
+
+/* Light cards keep dark text now that sections default to light-on-navy */
+.story-card,
+.stat-card,
+.prevention-card,
+.resource-card,
+.vision-list li,
+.founder-info,
+.contact-item,
+.video-container {
+    color: var(--color-text);
+}
+
+.sources .sources-list h3 {
+    color: var(--color-white);
+}
+
+/* Orange stat banner: squared corners + exclamation badge, per brochure */
+.callout-box {
+    border-radius: 4px;
+    border-left: none;
+    position: relative;
+    padding-left: calc(var(--spacing-lg) + 3.25rem);
+}
+
+.callout-box::before {
+    content: "!";
+    position: absolute;
+    left: var(--spacing-lg);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2rem;
+    height: 2.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-white);
+    border-radius: 8px;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--color-white);
+}
+
+/* Wordmark: "Walk" white, "Away" orange, "/ Siúil" white, "Leat" orange */
+.logo-sep {
+    color: var(--color-white);
+}
+
+.logo-leat {
+    color: var(--color-secondary);
+}
+
+.footer {
+    background-color: var(--color-navy-deep);
+    border-top: 1px solid var(--color-gold);
+    margin-top: 0;
+}
+
+@media (max-width: 600px) {
+    .callout-box {
+        padding-left: calc(var(--spacing-md) + 3rem);
+    }
+
+    .callout-box::before {
+        left: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-siuil {
+        display: none;
+    }
 }
