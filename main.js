@@ -1,56 +1,57 @@
 /* ========================================
     Walk Away - JavaScript
-   Smooth interactions & video fallback handling
+   Smooth interactions, navigation & video
    ======================================== */
 
 (function() {
     'use strict';
 
     // ========================================
-    // 1. Video Fallback Detection & Handling
+    // 1. YouTube in-page player
     // ========================================
 
-    function initializeVideoFallback() {
-        const videoContainer = document.querySelector('.video-container');
-        const videoPlayer = document.querySelector('.video-player');
-        const videoFallback = document.querySelector('.video-fallback');
+    function initializeYouTubePlayer() {
+        const facades = document.querySelectorAll('[data-youtube-id]');
 
-        if (!videoContainer || !videoPlayer || !videoFallback) {
-            return;
-        }
+        facades.forEach(function(facade) {
+            facade.addEventListener('click', function(event) {
+                event.preventDefault();
 
-        // Check if iframe is loading properly
-        const iframe = videoPlayer.querySelector('iframe');
-        
-        if (iframe) {
-            // Set a timeout to show fallback if iframe fails to load
-            const fallbackTimeout = setTimeout(function() {
-                // Check if iframe has content
-                if (!iframe.src || iframe.src.trim() === '') {
-                    showVideoFallback();
+                const videoId = facade.getAttribute('data-youtube-id');
+                if (!videoId) {
+                    return;
                 }
-            }, 5000); // 5 seconds
 
-            // Listen for iframe load
-            iframe.addEventListener('load', function() {
-                clearTimeout(fallbackTimeout);
+                // YouTube blocks embeds on file:// (Error 153). Keep playback on-page over http(s).
+                if (window.location.protocol !== 'http:' && window.location.protocol !== 'https:') {
+                    window.alert(
+                        'To play this video on the site, open the page through a local server:\n\nhttp://127.0.0.1:5500/#video-section\n\nOpening the HTML file directly cannot embed YouTube.'
+                    );
+                    window.open(facade.href, '_blank', 'noopener,noreferrer');
+                    return;
+                }
+
+                const wrap = document.createElement('div');
+                wrap.className = 'video-player video-player--portrait';
+
+                const iframe = document.createElement('iframe');
+                iframe.title = facade.getAttribute('aria-label') || 'YouTube video';
+                iframe.allowFullscreen = true;
+                iframe.setAttribute(
+                    'allow',
+                    'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+                );
+                iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+                iframe.src =
+                    'https://www.youtube.com/embed/' +
+                    encodeURIComponent(videoId) +
+                    '?autoplay=1&rel=0&playsinline=1&origin=' +
+                    encodeURIComponent(window.location.origin);
+
+                wrap.appendChild(iframe);
+                facade.parentNode.replaceChild(wrap, facade);
             });
-
-            // Listen for iframe errors
-            iframe.addEventListener('error', function() {
-                clearTimeout(fallbackTimeout);
-                showVideoFallback();
-            });
-        }
-
-        function showVideoFallback() {
-            if (videoPlayer) {
-                videoPlayer.style.display = 'none';
-            }
-            if (videoFallback) {
-                videoFallback.style.display = 'block';
-            }
-        }
+        });
     }
 
     // ========================================
@@ -238,7 +239,7 @@
     }
 
     function initializeAll() {
-        initializeVideoFallback();
+        initializeYouTubePlayer();
         initializeSmoothScroll();
         initializeKeyboardNav();
         initializeEventTracking();
