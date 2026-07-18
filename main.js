@@ -1,61 +1,13 @@
 /* ========================================
     Walk Away - JavaScript
-   Smooth interactions, navigation & video
+   Smooth interactions & navigation
    ======================================== */
 
 (function() {
     'use strict';
 
     // ========================================
-    // 1. YouTube in-page player
-    // ========================================
-
-    function initializeYouTubePlayer() {
-        const facades = document.querySelectorAll('[data-youtube-id]');
-
-        facades.forEach(function(facade) {
-            facade.addEventListener('click', function(event) {
-                event.preventDefault();
-
-                const videoId = facade.getAttribute('data-youtube-id');
-                if (!videoId) {
-                    return;
-                }
-
-                // YouTube blocks embeds on file:// (Error 153). Keep playback on-page over http(s).
-                if (window.location.protocol !== 'http:' && window.location.protocol !== 'https:') {
-                    window.alert(
-                        'To play this video on the site, open the page through a local server:\n\nhttp://127.0.0.1:5500/#video-section\n\nOpening the HTML file directly cannot embed YouTube.'
-                    );
-                    window.open(facade.href, '_blank', 'noopener,noreferrer');
-                    return;
-                }
-
-                const wrap = document.createElement('div');
-                wrap.className = 'video-player video-player--portrait';
-
-                const iframe = document.createElement('iframe');
-                iframe.title = facade.getAttribute('aria-label') || 'YouTube video';
-                iframe.allowFullscreen = true;
-                iframe.setAttribute(
-                    'allow',
-                    'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-                );
-                iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
-                iframe.src =
-                    'https://www.youtube.com/embed/' +
-                    encodeURIComponent(videoId) +
-                    '?autoplay=1&rel=0&playsinline=1&origin=' +
-                    encodeURIComponent(window.location.origin);
-
-                wrap.appendChild(iframe);
-                facade.parentNode.replaceChild(wrap, facade);
-            });
-        });
-    }
-
-    // ========================================
-    // 2. Smooth Scroll Navigation
+    // 1. Smooth Scroll Navigation
     // ========================================
 
     function initializeSmoothScroll() {
@@ -256,7 +208,6 @@
     }
 
     function initializeAll() {
-        initializeYouTubePlayer();
         initializeMobileNav();
         initializeSmoothScroll();
         initializeKeyboardNav();
